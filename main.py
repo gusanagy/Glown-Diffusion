@@ -44,7 +44,7 @@ if __name__== "__main__" :
 
     config = parser.parse_args()
     
-    wandb.init(
+    """  wandb.init(
              project="CLEDiffusion",
              config=vars(config),
              name="GlowDiff SUIM data",
@@ -52,7 +52,7 @@ if __name__== "__main__" :
              group="Branch glown_diffusion_train",
              job_type="train",
 
-         ) 
+         )  """
     
     for key, value in modelConfig.items():
         setattr(config, key, value)
@@ -61,7 +61,7 @@ if __name__== "__main__" :
 
     train(config)#importar a funcao ou classe de papeline de treinamento== treino/teste e carregar as configs e rodar
 
-    wandb.finish()
+    # wandb.finish()
 
     
 #start trainig papeline

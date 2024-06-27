@@ -249,7 +249,7 @@ def train(config: Dict):
     
 
     print('Using device:', device)
-    
+    """ 
     ###load the data
     datapath_train = load_image_paths(config.dataset_path,config.dataset)
     dataload_train=load_data(datapath_train, datapath_train)
@@ -388,7 +388,7 @@ def train(config: Dict):
             #write_data = 'epoch: {}  psnr: {:.4f} ssim: {:.4f}\n'.format(e, avg_psnr,avg_ssim)
             #f = open(save_txt, 'a+')
             #f.write(write_data)
-            #f.close()
+            #f.close()"""
 
 
 def Test(config: Dict,epoch):
@@ -546,7 +546,7 @@ def Test(config: Dict,epoch):
                 # f.write(str(avg_ssim))
                 # f.close()
 
-                #return avg_psnr,avg_ssim
+                #return avg_psnr,avg_ssim 
 
 if __name__== "__main__" :
     parser = argparse.ArgumentParser()

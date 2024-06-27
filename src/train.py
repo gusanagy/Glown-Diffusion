@@ -235,11 +235,20 @@ class load_data_test(data.Dataset):
 
 def train(config: Dict):
     if config.DDP==True:
-        local_rank = int(os.getenv('LOCAL_RANK', -1))
+        #local_rank = int(os.getenv('LOCAL_RANK', -1))
+        local_rank = 0  # Definir local_rank como 0 para uma única GPU
         print('locak rank:',local_rank)
-        torch.cuda.set_device(local_rank)
-        dist.init_process_group(backend='nccl')
-        device = torch.device("cuda", local_rank)
+        #torch.cuda.set_device(local_rank)
+        #dist.init_process_group(backend='nccl')
+        #device = torch.device("cuda", local_rank)
+    
+    device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+    # Single GPU setup
+    local_rank = 0  # Definir local_rank como 0 para uma única GPU
+    print('locak rank:',local_rank)
+    
+
+    print('Using device:', device)
     
     ###load the data
     datapath_train = load_image_paths(config.dataset_path,config.dataset)
@@ -265,10 +274,10 @@ def train(config: Dict):
     if config.DDP == True:
         net_model = DDP(net_model.cuda(), device_ids=[local_rank], output_device=local_rank,)
     else:
-        net_model=torch.nn.DataParallel(net_model,device_ids=config.device_list)
-        device=config.device_list[0]
-        net_model.to(device)
-
+        #net_model=torch.nn.DataParallel(net_model,device_ids=config.device_list)
+        #device=config.device_list[0]
+        net_model.to(device) 
+    #net_model.to(device) 
     ##Set modeltools
     optimizer = torch.optim.AdamW(
         net_model.parameters(), lr=config.lr, weight_decay=1e-4)

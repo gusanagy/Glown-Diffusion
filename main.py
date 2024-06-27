@@ -25,8 +25,8 @@ if __name__== "__main__" :
         "beta_T": 0.02,
         "img_size": 32,
         "grad_clip": 1.,
-        "device": "cuda", #MODIFIQUEI
-        "device_list": [1, 0],#[0, 1]
+        "device": "cuda:0", #MODIFIQUEI
+        "device_list": [0, 1],#[0, 1]
         #"device_list": [3,2,1,0],
         
         "ddim":True,
@@ -47,7 +47,7 @@ if __name__== "__main__" :
     wandb.init(
              project="CLEDiffusion",
              config=vars(config),
-             name="Treino e Teste GlowDiff 4 loss",
+             name="GlowDiff SUIM data",
              tags=["Train","No mask", "GlowDiff"],
              group="Branch glown_diffusion_train",
              job_type="train",

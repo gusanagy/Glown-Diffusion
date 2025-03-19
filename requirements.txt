@@ -6,7 +6,6 @@ albumentations
 tensorboardX
 tensorboard
 scikit-image 
-glob
 matplotlib
 kornia
 numpy

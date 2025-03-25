@@ -36,20 +36,16 @@ Activities in underwater environments are paramount in several scenarios, which 
 
 ## Setup
 
-'''
-git clone https://github.com/gusanagy/UDBE.git   
-'''
-
-'''
+```
+git clone https://github.com/gusanagy/UDBE.git
+  
 cd UDBE
-'''
-
-'''
+```
+```
 conda env create -f UDBE.yaml --name UDBE
+
 conda activate UDBE
-'''
-
-
+```
 
 ## Usage
 <!--Our diffusion code structure is based on the original implementation of DDPM. Increasing the size of the U-Net may lead to better results. About training iteration. The training with 5000 iterations has converged quite well. We recommend training for 10,000 iterations to achieve better performance, and you can select the best-performing training iterations.We test code on one RTX 3090 GPU. The training time is about 1-2 days.*/ -->
@@ -87,14 +83,14 @@ python test_mask.py --pretrained_path ckpt/Mask_CLE.pt --input_path data/Mask_CL
 Paper: https://arxiv.org/abs/2501.16211
 For quotes:
 
-'''
+```
 @article{schein2025udbe,
   title={UDBE: Unsupervised Diffusion-based Brightness Enhancement in Underwater Images},
   author={Schein, Tatiana Ta{\'\i}s and de Almeira, Gustavo Pereira and Bri{\~a}o, Stephanie Loi and de Bem, Rodrigo Andrade and de Oliveira, Felipe Gomes and Drews-Jr, Paulo LJ},
   journal={arXiv preprint arXiv:2501.16211},
   year={2025}
 }
-'''
+```
 
 # ACKNOWLEDGMENT
 This study was funded, in part, by the São Paulo Research Foundation (FAPESP), Brazil, under Process Number 2024/10523-5. The authors would also like to thank the PRH-ANP and CNPQ organizations for their research support and financial assistance.
